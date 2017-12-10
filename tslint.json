@@ -1,0 +1,35 @@
+{
+    "rules": {
+        "eofline": true,
+        "semicolon": [true, "always"],
+        "no-console": [true, "error"],
+        "comment-format": [true, "check-space"],
+        "trailing-comma": [true, { "multiline": "never", "singleline": "never" }],
+        "no-irregular-whitespace": true,
+        "no-trailing-whitespace": true,
+        "space-before-function-paren": [true, {
+            "anonymous": "always",
+            "named": "always",
+            "asyncArrow": "always"
+        }],
+        "typedef-whitespace": [
+            true,
+            {
+                "parameter": "nospace",
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            }
+        ],
+        "whitespace": [
+            true,
+            "check-decl",
+            "check-type",
+            "check-branch",
+            "check-operator",
+            "check-separator"
+        ]
+    }
+}
+

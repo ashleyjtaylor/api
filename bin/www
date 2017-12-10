@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+require('dotenv').config();
+
+const config = require('config');
+const bunyan = require('bunyan');
+const format = require('bunyan-format');
+
+const log = bunyan.createLogger({
+    name: config.get('app.name'),
+    level: config.get('log.level'),
+    stream: format({ outputMode: 'short', color: true }),
+    serializers: bunyan.stdSerializers,
+    src: process.env.NODE_ENV !== 'production'
+});
+
+if (process.env.NODE_ENV === 'production') {
+    log.addStream({ path: './app.log' });
+}
+
+process.on('uncaughtException', error => {
+    log.warn(error);
+    log.debug('Uncaught Exception');
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    log.warn({ reason, promise }, reason);
+    log.debug('Unhandled Rejection');
+});
+
+const port = process.env.PORT || config.get('server.port');
+const uri = process.env.MONGODB_URI || config.get('db.uri');
+
+const Server = require('../dist/server').Server;
+new Server(log, port).connect(uri);

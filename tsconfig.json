@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "outDir": "./dist",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "watch": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "skipLibCheck": true,
+        "allowUnreachableCode": false
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        ".vscode",
+        "dist",
+        "**/*.d.ts",
+        "tests/**/*.ts"
+    ],
+    "compileOnSave": true
+}

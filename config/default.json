@@ -1,0 +1,18 @@
+{
+    "log": {
+        "level": "debug"
+    },
+    "server": {
+        "host": "localhost",
+        "port": 8080
+    },
+    "db": {
+        "uri": "mongodb://localhost/api"
+    },
+    "app": {
+        "name": "API",
+        "cookies": {
+            "auth": "api_user"
+        }
+    }
+}
